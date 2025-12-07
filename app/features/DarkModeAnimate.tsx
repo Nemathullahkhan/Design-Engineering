@@ -74,7 +74,7 @@ export default function DarkModeAnimate() {
             This component is inspired by the{" "}
             <motion.a
               href="https://x.com/raunofreiberg"
-              className="underline font-thin mx-2 text-xl"
+              className="underline font-semibold mx-2 text-xl"
               animate={{
                 color: isDarkMode ? "#ffffff" : "#000000",
               }}
