@@ -23,7 +23,7 @@ export default function Home() {
       <div className="max-w-7xl w-full mx-auto flex justify-between items-center">
         <div className="flex-1">
           <h1 className="text-3xl">
-            Hi, I'm <span className="font-semibold">Nemath Khan</span>
+            Hi, I&apos;m <span className="font-semibold">Nemath Khan</span>
           </h1>
           <h2 className="text-2xl">a Full Stack Developer</h2>
           <h3 className="text-xl">

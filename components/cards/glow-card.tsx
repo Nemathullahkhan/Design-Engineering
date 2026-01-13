@@ -1,15 +1,15 @@
 "use client";
+import { GlowCardProps } from "@/lib/glow-card/types";
 import { MoveRight } from "lucide-react";
 import { motion, useMotionTemplate } from "motion/react";
 import { useMotionValue } from "motion/react";
 import Link from "next/link";
-import React from "react";
 
-const GlowCard = ({ item, isFirst, isLast }) => {
+const GlowCard = ({ item, isFirst, isLast }: GlowCardProps) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  function handleMouseMove(e) {
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     const rect = e.currentTarget.getBoundingClientRect();
     mouseX.set(e.clientX - rect.left);
     mouseY.set(e.clientY - rect.top);
@@ -56,17 +56,19 @@ const GlowCard = ({ item, isFirst, isLast }) => {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col">
-        <Link href={item.href}>
-          <div className="flex justify-between p-4 items-center border-b-zinc-400 border-b ">
-            <p className="text-zinc-800 text-xl font-[450]">{item.title}</p>
-            <motion.span
-              className="bg-white p-2 rounded-3xl shadow-sm "
-              whileHover={{ scale: 1.2 }}
-            >
-              <MoveRight size={16} className="text-zinc-900" />
-            </motion.span>
-          </div>
-        </Link>
+        {item?.href && (
+          <Link href={item.href}>
+            <div className="flex justify-between p-4 items-center border-b-zinc-400 border-b ">
+              <p className="text-zinc-800 text-xl font-[450]">{item.title}</p>
+              <motion.span
+                className="bg-white p-2 rounded-3xl shadow-sm "
+                whileHover={{ scale: 1.2 }}
+              >
+                <MoveRight size={16} className="text-zinc-900" />
+              </motion.span>
+            </div>
+          </Link>
+        )}
       </div>
     </motion.div>
   );
